@@ -1,0 +1,15 @@
+version: "3"
+services:
+  couchdb:
+    image: couchdb
+    ports:
+      - 5984:5984
+  web:
+    build: .
+    image: dev/vtxok
+    links:
+      - couchdb
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/opt/vtxok:Z
