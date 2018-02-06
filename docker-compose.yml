@@ -13,3 +13,6 @@ services:
       - 8000:8000
     volumes:
       - .:/opt/vtxok:Z
+    labels:
+      - "traefik.backend=vtxok"
+      - "traefik.frontend.rule=Host:vortexok.net, www.vortexok.net"
